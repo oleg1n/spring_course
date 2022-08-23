@@ -1,9 +1,22 @@
 package spring_introduction;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 public class Person {
     private Pet pet;
+    @Value("${person.surname}")
     private String surname;
+    @Value("${person.age}")
     private int age;
+
+
+    public Person(Pet pet) {
+        System.out.println("Constructor of Person");
+        this.pet = pet;
+    }
 
     public Pet getPet() {
         return pet;
@@ -41,5 +54,11 @@ public class Person {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 '}';
+    }
+    public void init(){
+        System.out.println("Init method");
+    }
+    public void destroy(){
+        System.out.println("Destroy method");
     }
 }

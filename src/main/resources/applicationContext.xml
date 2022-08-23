@@ -16,7 +16,9 @@
 
     <bean
             id = "myPerson"
-            class = "spring_introduction.Person">
+            class = "spring_introduction.Person"
+            init-method="init"
+            destroy-method="destroy">
             <property name="pet" ref="myPet"/>
             <property name="surname" value="${person.surname}"/>
             <property name="age" value="${person.age}"/>
